@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Many image hosts refuse requests that carry an unfamiliar referrer. -->
+  <meta name="referrer" content="no-referrer">
+  <title>Quiet Page</title>
+  <link rel="stylesheet" href="reader.css">
+  <link rel="stylesheet" href="library.css">
+</head>
+<body>
+<div class="shell">
+
+  <!-- ===================== Library sidebar ===================== -->
+  <aside class="library no-print" id="library" aria-label="Library">
+    <div class="lib-head">
+      <h2>Library</h2>
+      <button type="button" id="lib-new-folder" class="lib-small">+ Folder</button>
+      <button type="button" id="lib-close" class="lib-icon" aria-label="Hide library" title="Hide library">&times;</button>
+    </div>
+
+    <div class="lib-bulk" id="lib-bulk">
+      <label class="lib-selall" title="Select all">
+        <input type="checkbox" id="lib-select-all" aria-label="Select all pages">
+        <span id="lib-sel-count">Select</span>
+      </label>
+      <div class="lib-bulk-actions">
+        <button type="button" id="lib-bulk-move" disabled>Move to</button>
+        <button type="button" id="lib-bulk-download" disabled>Download</button>
+        <button type="button" id="lib-bulk-delete" class="danger" disabled>Delete</button>
+      </div>
+    </div>
+
+    <div class="lib-tree" id="lib-tree"></div>
+
+    <p class="lib-empty" id="lib-empty" hidden>
+      Nothing collected yet. Open a clean copy of an article and press
+      <strong>Collect</strong> to keep it here.
+    </p>
+    <p class="lib-status" id="lib-status" role="status" aria-live="polite"></p>
+  </aside>
+
+  <!-- ===================== Reader ===================== -->
+  <div class="main-col">
+    <header class="toolbar no-print" id="toolbar" role="toolbar" aria-label="Page controls">
+      <div class="tb-group">
+        <button type="button" id="lib-toggle" aria-controls="library" title="Show or hide the library">&#9776; Library</button>
+      </div>
+
+      <div class="tb-tools" id="article-tools" hidden>
+        <div class="tb-group" id="image-tools">
+          <span class="tb-label">Images</span>
+          <div class="seg">
+            <button type="button" id="img-keep-all">Keep all</button>
+            <button type="button" id="img-remove-all">Remove all</button>
+          </div>
+          <span class="tb-count" id="img-count" aria-live="polite"></span>
+        </div>
+
+        <div class="tb-group" id="size-tools">
+          <label class="tb-label" for="size-all">Size all</label>
+          <input type="range" id="size-all" min="10" max="100" step="5" value="75">
+          <output id="size-all-out" for="size-all">75%</output>
+        </div>
+
+        <div class="tb-group">
+          <span class="tb-label">Text</span>
+          <div class="seg">
+            <button type="button" id="font-down" aria-label="Smaller text">A&minus;</button>
+            <button type="button" id="font-up" aria-label="Larger text">A+</button>
+          </div>
+          <button type="button" id="font-family" class="plain" aria-label="Switch typeface">Sans</button>
+        </div>
+
+        <div class="tb-group tb-end">
+          <label class="tb-check" title="Applies to the next article you open">
+            <input type="checkbox" id="pref-start-removed">
+            Remove images by default
+          </label>
+          <button type="button" id="collect" class="collect">&#9734; Collect</button>
+          <button type="button" id="print" class="primary">Print / Save PDF</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="page" id="page">
+      <article id="article" hidden>
+        <header class="meta">
+          <p class="site" id="site"></p>
+          <h1 id="title"></h1>
+          <p class="byline" id="byline"></p>
+          <p class="source" id="source"></p>
+        </header>
+        <div class="content" id="content"></div>
+      </article>
+
+      <section class="message" id="message" hidden>
+        <h1 id="message-title"></h1>
+        <p id="message-body"></p>
+        <p id="message-link"></p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<div class="lib-menu" id="lib-menu" role="menu" hidden></div>
+
+<script src="zip.js"></script>
+<script src="reader.js"></script>
+<script src="export.js"></script>
+<script src="library.js"></script>
+</body>
+</html>

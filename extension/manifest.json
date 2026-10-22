@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Quiet Page",
+  "version": "0.2.2",
+  "description": "Turn cluttered articles into clean, printer-friendly text. Keep, remove, or resize images, and collect pages into folders.",
+  "minimum_chrome_version": "116",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "Open a clean, printable copy (Alt+Shift+P). Right-click for your library.",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["activeTab", "scripting", "storage", "unlimitedStorage", "contextMenus"],
+  "commands": {
+    "_execute_action": {
+      "suggested_key": { "default": "Alt+Shift+P" },
+      "description": "Open a clean, printable copy of this page"
+    }
+  }
+}
