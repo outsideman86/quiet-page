@@ -1,0 +1,17 @@
+:root{--bg:#f6f3ee;--sheet:#fff;--ink:#1d1b18;--muted:#6b655c;--rule:#ddd6cb;--accent:#2f5d50}
+@media (prefers-color-scheme:dark){:root{--bg:#161513;--sheet:#22201d;--ink:#e8e3da;--muted:#a49d91;--rule:#3a3631;--accent:#7fb8a5}}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink)}
+body{font:17px/1.6 Charter,"Bitstream Charter","Sitka Text",Cambria,Georgia,serif}
+main{max-width:720px;margin:40px auto 80px;padding:48px 56px;background:var(--sheet);border:1px solid var(--rule);border-radius:6px}
+@media (max-width:760px){main{margin:0;border:none;border-radius:0;padding:28px 16px 48px}}
+h1{font-size:2em;line-height:1.2;margin:0 0 .3em}
+h2{font-size:1.2em;margin:1.8em 0 .4em}
+p,li{margin:0 0 .8em}
+a{color:var(--accent)}
+.meta{font:14px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--muted);margin-bottom:2em}
+.brand{display:flex;align-items:center;gap:12px;font:600 14px/1 system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:1.4em;text-decoration:none}
+.brand img{width:36px;height:36px}
+ul.ext{list-style:none;padding:0}
+ul.ext li{padding:14px 0;border-top:1px solid var(--rule)}
+ul.ext li:last-child{border-bottom:1px solid var(--rule)}
